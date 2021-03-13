@@ -7,12 +7,16 @@ type Props = {
   title?: string
 }
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
+const Layout = ({ children, title }: Props) => (
   <div>
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <meta name="apple-music-developer-token" content={process.env.NEXT_PUBLIC_DEVELOPER_TOKEN} />
+      <meta name="apple-music-app-name" content="My Cool Web App" />
+      <meta name="apple-music-app-build" content="yyyy.mm.dd" />
+      <script src="https://js-cdn.music.apple.com/musickit/v1/musickit.js"></script>
     </Head>
     <header>
       <nav>
@@ -23,11 +27,6 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
         <Link href="/about">
           <a>About</a>
         </Link>{' '}
-        |{' '}
-        <Link href="/users">
-          <a>Users List</a>
-        </Link>{' '}
-        | <a href="/api/users">Users API</a>
       </nav>
     </header>
     {children}

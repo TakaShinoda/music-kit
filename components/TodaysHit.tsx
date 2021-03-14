@@ -7,7 +7,9 @@ export const TodaysHit: FC = () => {
       <button data-apple-music-set-queue="pl.f4d106fed2bd41149aaacabb233eb5eb">
         Today's hits
       </button>
-      {/* <button data-apple-music-set-queue="907312376">再生</button> */}
+
+      {/* Dynamite */}
+      {/* <button data-apple-music-set-queue="1528831887">再生</button> */}
 
       {/* Add Media Playback Controls */}
       <button data-apple-music-pause></button>

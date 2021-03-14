@@ -24,8 +24,8 @@ const Layout = ({ children, title }: Props) => (
           <a>Home</a>
         </Link>{' '}
         |{' '}
-        <Link href="/about">
-          <a>About</a>
+        <Link href="/search">
+          <a>Search</a>
         </Link>{' '}
       </nav>
     </header>

@@ -14,7 +14,7 @@ export const TodaysHit: FC = () => {
         Today's hits
       </button> */}
 
-      <button data-apple-music-set-queue="https://music.apple.com/jp/playlist/%E3%83%88%E3%83%83%E3%83%97100-%E6%97%A5%E6%9C%AC/pl.043a2c9876114d95a4659988497567be">
+      <button data-apple-music-set-queue="pl.043a2c9876114d95a4659988497567be">
         Japan Top 100
       </button>
 

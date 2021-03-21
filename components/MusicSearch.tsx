@@ -18,18 +18,30 @@ export const MusicSearch: FC = () => {
     music.api
       .search(keyword, { limit: 20, types: 'artists,songs' })
       .then((datas: any) => {
-        // (async () => {
-        //     console.log('スタート');
-        //     console.log(datas)
-        //     await sleep(1000);
-        //     console.log('1秒経ってる!')
-        //     await setResults(['a'])
-        //     await console.log(results)
-        //   })();
-
         setResults(datas.songs.data)
+        console.log(datas.songs.data)
         setFlag(true)
       })
+  }
+
+  const tableView = () => {
+    return (
+      <table>
+        <tbody>
+          {results.map((r, i) => (
+            <tr key={i}>
+              <td>
+                <img
+                  src={r.attributes.artwork.url.replace(/({w}|{h})/g, '100')}
+                  alt="artworkUrl"
+                />
+              </td>
+              <td>{r.attributes.name}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    )
   }
 
   return (
@@ -41,34 +53,7 @@ export const MusicSearch: FC = () => {
         </button>
       </form>
 
-      {flag && (
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <img
-                  src={results[0].attributes.artwork.url.replace(
-                    /({w}|{h})/g,
-                    '100'
-                  )}
-                  alt="artworkUrl"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img
-                  src={results[1].attributes.artwork.url.replace(
-                    /({w}|{h})/g,
-                    '100'
-                  )}
-                  alt="artworkUrl"
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      )}
+      {flag && tableView()}
     </div>
   )
 }

@@ -1,10 +1,14 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 
 export const MusicSearch: FC = () => {
-  console.log('呼ばれた')
   const [keyword, setKeyword] = useState('')
   const [results, setResults] = useState<any[]>([])
   const [flag, setFlag] = useState(false)
+  const [music, setMusic] = useState<any>()
+
+  useEffect(() => {
+    setMusic(MusicKit.getInstance())
+  }, [])
 
   const inputKeyword = (e: React.ChangeEvent<HTMLInputElement>) => {
     setKeyword(e.target.value)
@@ -14,10 +18,11 @@ export const MusicSearch: FC = () => {
     e.preventDefault()
     console.log(keyword)
 
-    let music = MusicKit.getInstance()
+    // let music = MusicKit.getInstance()
     music.api
-      .search(keyword, { limit: 20, types: 'artists,songs' })
+      .search(keyword, { limit: 30, types: 'artists,songs' })
       .then((datas: any) => {
+        console.log(datas)
         setResults(datas.songs.data)
         console.log(datas.songs.data)
         setFlag(true)

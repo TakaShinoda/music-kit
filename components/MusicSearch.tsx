@@ -29,6 +29,13 @@ export const MusicSearch: FC = () => {
       })
   }
 
+  const play = (id: string) => {
+    console.log(id)
+    music.setQueue({ song: id }).then(() => {
+      music.play()
+    })
+  }
+
   const tableView = () => {
     return (
       <table>
@@ -42,6 +49,11 @@ export const MusicSearch: FC = () => {
                 />
               </td>
               <td>{r.attributes.name}</td>
+              <td>
+                <button onClick={() => play(r.id)}>
+                  play
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

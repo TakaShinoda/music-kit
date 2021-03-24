@@ -36,6 +36,11 @@ export const MusicSearch: FC = () => {
     })
   }
 
+  const pause = () => {
+    console.log('pause')
+    music.pause()
+  }
+
   const tableView = () => {
     return (
       <table>
@@ -50,9 +55,8 @@ export const MusicSearch: FC = () => {
               </td>
               <td>{r.attributes.name}</td>
               <td>
-                <button onClick={() => play(r.id)}>
-                  play
-                </button>
+                <button onClick={() => play(r.id)}>play</button>
+                <button onClick={pause}>pause</button>
               </td>
             </tr>
           ))}

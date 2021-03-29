@@ -1,4 +1,6 @@
 import React, { FC, useState, useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlayCircle, faPauseCircle } from '@fortawesome/free-solid-svg-icons'
 
 export const MusicSearch: FC = () => {
   const [keyword, setKeyword] = useState('')
@@ -55,8 +57,8 @@ export const MusicSearch: FC = () => {
               </td>
               <td>{r.attributes.name}</td>
               <td>
-                <button onClick={() => play(r.id)}>play</button>
-                <button onClick={pause}>pause</button>
+                <FontAwesomeIcon icon={faPlayCircle} onClick={() => play(r.id)}/>
+                <FontAwesomeIcon icon={faPauseCircle} onClick={pause} />
               </td>
             </tr>
           ))}

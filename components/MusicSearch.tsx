@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlayCircle, faPauseCircle } from '@fortawesome/free-solid-svg-icons'
+import { faPlayCircle, faPauseCircle, faStopCircle } from '@fortawesome/free-solid-svg-icons'
 
 export const MusicSearch: FC = () => {
   const [keyword, setKeyword] = useState('')
@@ -40,7 +40,8 @@ export const MusicSearch: FC = () => {
 
   const pause = () => {
     console.log('pause')
-    music.pause()
+    music.stop()
+    // music.player.stop()
   }
 
   const tableView = () => {
@@ -58,7 +59,7 @@ export const MusicSearch: FC = () => {
               <td>{r.attributes.name}</td>
               <td>
                 <FontAwesomeIcon icon={faPlayCircle} onClick={() => play(r.id)}/>
-                <FontAwesomeIcon icon={faPauseCircle} onClick={pause} />
+                <FontAwesomeIcon icon={faStopCircle} onClick={pause} />
               </td>
             </tr>
           ))}
